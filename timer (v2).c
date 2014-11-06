@@ -13,7 +13,7 @@ int main()
         minit(j);
         sec();
         j++;
-        printf("\b\b\b");
+        printf("\b\b\b\b\b\b");
         if(j==60)
         {j=0;
          k++;
