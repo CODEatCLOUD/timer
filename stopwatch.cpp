@@ -23,12 +23,13 @@ int main()
 
 int sec(int s)
 {
-    for(;s>=0;s--)
+    for(;s>0;s--)
     {
         printf("%02d",s);
         Sleep(1000);
         printf("\b\b");
     }
+    printf("00");
 }
 
 int minit(int m)
