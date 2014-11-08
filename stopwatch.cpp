@@ -1,44 +1,60 @@
 #include<stdio.h>
 #include<iostream>
-
-#include<windows.h>
+#include<windows.h> // library for sleep function
 
 int sec(int);
-int minit(int);
 int minute(int,int);
+int hour(int,int,int);
+
 int main()
 {
-    int m,s;
-    printf("mm:ss\n");
-    scanf("%d:%d",&m,&s);
-    minute(m,s);
+    int m,s,h;
+    printf("hh:mm:ss\n");
+    scanf("%d:%d:%d",&h,&m,&s);
+    hour(h,m,s);
+    printf("00:00:00");          // to show that it is completed
 
+}
+
+int hour(int h,int m,int s)
+{
+    for(;h>=0;h--)
+    {
+        printf("%02d:",h);
+        minute(m,s);
+        printf("\b\b\b");
+        m=60;
+        s=60;
+
+    }
 }
 
 int minute(int m,int s)
 {
     for(;m>=0;)
     {
-        minit(m);
+        if(m==60)
+            printf("00:");
+        else
+            printf("%02d:",m);
         sec(s);
         printf("\b\b\b");
-        s=59;
         m--;
+        s=60;
     }
 }
+
+
 int sec(int s)
 {
     for(;s>0;s--)
     {
 
-        printf("%02d",s);
+        if(s==60)
+            printf("00");
+        else
+            printf("%02d",s);
         Sleep(1000);
         printf("\b\b");
     }
-    printf("00");
-}
-
-int minit(int m)
-{
-    printf("%02d:",m);
 }
